@@ -1,0 +1,16 @@
+<h1 id="tableLabel">Playlists</h1>
+
+<p>Echa un vistazo a las canciones de tus cantantes favoritos</p>
+
+<p *ngIf="!cantantes"><em>Loading...</em></p>
+<div class="cantantesList">
+  <div class="container" style="margin:auto;" *ngFor="let cantante of cantantes">
+    <div class="card" style="width: 18rem; margin:auto; margin-bottom:6rem">
+      <img class="card-img-top cantanteImg" src="../../assets/images/cantantes/{{ cantante.id }}.jpg" onerror="this.src='../../assets/images/cantantes/default.jpg'" alt="{{ cantante.name }}">
+      <div class="card-body">
+        <h5>{{ cantante.id }} . {{ cantante.name }}</h5>
+        <a [routerLink]="['/cantantes',cantante.id]" href="#" class="btn btn-primary">Canciones</a>
+      </div>
+    </div>
+  </div>
+</div>

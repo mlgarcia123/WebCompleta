@@ -1,0 +1,30 @@
+<h1 id="tableLabel">Lista de canciones</h1>
+
+
+<p *ngIf="!cantante"><em>Loading...</em></p>
+<div class="playlist">
+  <div class="row ">
+
+    <div class="col-md-7 px-3 " style="margin:auto; margin-top: 2rem;">
+      <div class="playlist-block px-6">
+        <h4 class="playlist-title">
+          {{cantante?.id}} - {{cantante?.name}}
+        </h4><br>
+        <br /><h5>Canciones</h5>
+        <ul class="list-group" *ngFor="let cancion of canciones">
+          <li class="list-group-item">{{cancion.name}}</li>
+          <li class="list-group-item"> {{cancion.estreno}}</li>
+          <li class="list-group-item">
+            <a class="btn btn-primary" (click)="editCancion(cancion)">Editar</a>  &nbsp;
+            <a class="btn btn-danger" (click)="deleteCancion(cancion)">Eliminar</a>
+          </li>
+        </ul>
+        <br>
+      </div>
+      <a (click)="newCancion()" style="margin-bottom:2rem" class="btn btn-primary">Añadir canción</a>
+    </div>
+    <div class="playlist-img cantanteImg">
+      <img class="d-block" src="../../assets/images/cantantes/{{cantante?.id}}.jpg" alt="{{cantante?.name}}">
+    </div>
+  </div>
+</div>
